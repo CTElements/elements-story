@@ -1,0 +1,780 @@
+
+{% if section.settings.product_show.title == product.title %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+<style>
+
+
+.element_story_content{
+   background: #464646; 
+   position: fixed;
+   top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000000000;
+    display: none;
+}
+.story {
+   width: 100%;
+   display: grid;
+   place-items: center;
+   height: 100vh;
+   background: #464646;
+   position: relative;
+}
+.height_full{
+   height: auto;
+   background: none;
+}
+
+.story_items {
+   display: none;
+   gap: 30px;
+   margin-top: 30px;
+}
+
+
+
+.preview_video_0{
+   position: relative;
+  border:0px solid #888;
+   box-shadow: 0 0 0 3px #fff, 0 0 0 6px royalblue;
+  animation: 1s anim infinite ease-in-out;
+}
+
+@keyframes anim {
+0% {
+      border-width: 0px;
+   }
+   50% {
+      border-width: 4px;
+   }
+  100%{
+    border-width:0px;
+  }
+}
+
+.slide_bull {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 12px;
+   cursor: pointer;
+}
+
+.slide_bull img,
+.slide_bull video {
+   width: 100%;
+   pointer-events: none;
+   width: 100px;
+   height: 100px;
+   border-radius: 100%;
+   overflow: hidden;
+   object-fit: cover;
+}
+
+.slide_bull h3 {
+   font-size: 15px;
+   font-weight: 700;
+}
+
+
+
+
+.mySwiper2 {
+   width: 450px;
+   height: 100vh;
+   top: 50%;
+   left: 0%;
+   transform: translate(-0%,-50%);
+}
+
+
+
+.mySwiper1 .swiper-slide {
+   width: 100%;
+
+}
+
+.mySwiper1 .swiper-slide.swiper-slide-active .mySwiper2 {
+   width: 100%;
+   height: 100% !important
+}
+
+
+.mySwiper2 .swiper-slide {
+   text-align: center;
+   font-size: 18px;
+
+}
+
+
+.swiper-slide video {
+
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+
+}
+
+.mySwiper2 .swiper-pagination {
+   top: 20px !important;
+   width: 100% !important;
+   left: 50% !important;
+   transform: translate(-50%, 0) !important;
+   padding: 0 15px;
+}
+
+.mySwiper2 .swiper-pagination-bullets.swiper-pagination-horizontal {
+   bottom: auto;
+}
+
+.mySwiper2 .swiper-pagination {
+   display: flex;
+}
+
+.mySwiper2 .swiper-button-next,
+.mySwiper2 .swiper-button-prev {
+   width: 40px;
+   height: 40px;
+   border-radius: 100%;
+   background: white;
+}
+
+.mySwiper2 .swiper-button-next:after,
+.mySwiper2 .swiper-button-prev:after {
+   font-size: 20px;
+
+}
+
+.mySwiper2 .swiper-pagination-bullet {
+   border-radius: 0;
+   width: 100%;
+   height: 3px;
+   overflow: hidden;
+   background: var(--swiper-pagination-bullet-inactive-color, #b4b4b4);
+   opacity: 1;
+}
+
+.mySwiper2 .swiper-pagination-bullet-active {
+   background: var(--swiper-pagination-bullet-inactive-color, #b4b4b4);
+   opacity: 1;
+}
+
+
+.mySwiper2 .swiper-pagination-bullet-active:after {
+   content: '';
+   display: block;
+   height: inherit;
+   background: red;
+
+}
+
+
+
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+   background-image: none;
+}
+
+
+
+
+
+@media (max-width: 990px) {
+   .mySwiper2 {
+      padding: 0;
+      width: 100%;
+   }
+      
+
+   .mySwiper2 .swiper-slide img,
+   .swiper-slide video {
+      border-radius: 0px;
+   }
+
+   .mySwiper2 .swiper-pagination {
+      top: 20px !important;
+   
+   }
+
+  
+
+   .slide_bull video {
+      width: 60px;
+      height: 60px;
+
+   }
+
+  
+
+   .mySwiper2 .swiper-button-next,
+   .mySwiper2 .swiper-button-prev {
+     
+      
+   }
+.saiba_mais {
+
+   bottom: 80px!important;
+  
+}
+   
+}
+
+
+
+
+.video_infos{
+   position: absolute;
+   top: 0;
+   z-index: 10;
+   width: 100%;
+   height: 100%;
+   padding: 20px;
+}
+
+.slide_story_user{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   top: 20px;
+
+}
+
+.user_avarta{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+
+}
+.swiper-slide .user_img{
+ width: 40px!important;
+ height: 40px!important;
+ border-radius: 100%;
+}
+.story_name{
+   font-size: 15px;
+   color: white;
+}
+.close_story i{
+   font-size: 26px;
+   color: white;
+   cursor: pointer;
+}
+
+.saiba_mais {
+   position: absolute;
+   z-index: 3;
+   bottom: 30px;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.volumes{
+   width: 20%;
+   display: flex;
+   align-items: center;
+}
+
+.saiba_mais_btn{
+   width: 75%;
+   background: rgb(255, 255, 255);
+   border-radius: 6px;
+   padding: 10px 0;
+}
+.saiba_mais_btn a{
+   text-decoration: none;
+   color: rgb(0, 0, 0);
+   font-size: 17px;
+   width: 100%;
+   display: inline-block;
+}
+
+.volume{
+   display: none;
+   cursor: pointer;
+}
+.volume i{
+   color: white;
+   font-size: 26px;
+   pointer-events: none;
+}
+.muted_ative{
+   display: block;
+}
+.bar_loading{
+   margin-bottom: 10px;
+   width: 100%;
+   background: rgb(124, 124, 124);
+   height: 5px;
+   position: relative;
+   overflow: hidden;
+}
+.bar_loading span{
+   height: 100%;
+   background: red;
+   position: absolute;
+   left: 0;
+}
+
+
+.mySwiper2{
+   display: none;
+}
+
+.show_modal_story{
+   display: flex;
+}
+
+.mySwiper2 .swiper-button-next, .mySwiper2 .swiper-button-prev{
+    display: flex!important;
+}
+
+.element_story_base {
+    margin: 50px 0;
+}
+</style>
+
+
+   
+<section class="element_story_base">
+    
+  <div class="story height_full">
+    
+      <div class="story_items show_modal_story">        
+        {% for block in section.blocks %}
+            <div class="slide_bull" data-slide="{{ forloop.index0 }}">              
+                <video loading="lazy" poster="{{ block.settings.video.preview_image | img_url: 'master' }}" class="preview_video_{{ forloop.index0 }}" autoplay loop muted playsinline preload="yes">
+                    <source src="{% for item in block.settings.video.sources offset: 1 %}{{ item.url }}{% endfor %}" type="video/mp4"> 
+                </video>
+                <h3>{{ block.settings.video_title }}</h3>
+
+            </div>
+        {% endfor %}      
+      </div>
+   
+
+
+    
+  <div class="element_story_content">
+
+    <div class="swiper mySwiper2">
+
+        <div class="swiper-wrapper" data-story="">
+
+         {% for block in section.blocks %}
+            <div class="swiper-slide">
+            
+                 <video loading="lazy" poster="{{ block.settings.video.preview_image | img_url: 'master' }}" data-name="{{ forloop.index0 }}" class="" autoplay loop muted playsinline preload="yes">
+                    <source src="{% for item in block.settings.video.sources offset: 1 %}{{ item.url }}{% endfor %}" type="video/mp4"> 
+                 </video>
+
+                <div class="video_infos">
+                   
+                    <div class="slide_story_user">
+                        <div class="user_avarta">
+                            <img loading="lazy" width="" height="" class="user_img" src="{{ section.settings.user_image | img_url: 'master' }}" alt="{{ section.settings.user }}">
+                            <div class="story_name">{{ section.settings.user }}</div>
+                        </div>
+                        <div class="close_story">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                 
+                    <div class="saiba_mais">
+                        <div class="saiba_mais_btn">
+                            <a href="/pages/{{ section.settings.product_show.tags[0] }}?url={{ section.settings.product_show.url }}&name={{ section.settings.product_show.title }}&id={{ section.settings.product_show.id }}&modelo={{ section.settings.product_show.tags[0] }}">{{ section.settings.btn_text }}</a>
+                        </div>
+                        <div class="volumes">
+                            <div class="muted volume muted_ative">
+                                <i class="fa-solid fa-volume-xmark"></i>
+                            </div>
+                            <div class="volumed volume">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}   
+        </div>
+    
+        <div class="swiper-button-next swiper_button"></div>
+        <div class="swiper-button-prev swiper_button"></div>
+    
+    
+    </div>
+  </div>
+  
+</div>
+
+</section>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+
+
+    const swiper2 = new Swiper('.mySwiper2', {
+    centeredSlides: true,
+    slidesPerView: 1,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    autoplay: false,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    on: {
+        slideChange: function (e) {
+            const index_currentSlide = e.realIndex;
+            const currentSlide = e.slides[index_currentSlide];
+            if (currentSlide) {
+                const muted = currentSlide.querySelector('.muted');
+                const volumed = currentSlide.querySelector('.volumed');
+                const close = currentSlide.querySelector('.close_story');
+                const getVideo = currentSlide.querySelector('video');
+
+                document.querySelectorAll('.swiper-slide video').forEach((video) => {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.muted = true;
+                    video.load();
+                });
+
+                getVideo.muted = true;
+                getVideo.load();
+                getVideo.autoplay = true;
+
+                muted.addEventListener('click', () => {
+                    muted.classList.remove('muted_ative');
+                    volumed.classList.add('muted_ative');
+                    getVideo.muted = false;
+                });
+
+                volumed.addEventListener('click', () => {
+                    volumed.classList.remove('muted_ative');
+                    muted.classList.add('muted_ative');
+                    getVideo.muted = true;
+                });
+
+                if (getVideo.classList.contains('muted')) {
+                    // getVideo.muted = true;
+                } else {
+                    // getVideo.muted = false;
+                }
+
+                getVideo.onloadedmetadata = function () {
+                     const duration = Math.floor(getVideo.duration);
+
+                    setInterval(() => {
+                        if (Math.floor(getVideo.currentTime) >= duration) {
+                            getVideo.load();
+                            getVideo.pause();
+                            getVideo.currentTime = 0;
+                        }
+                    }, 1000);
+
+                    let counter = 0;
+
+                    var inter;
+
+                    var intervalPaused = false;
+
+                    var pausedCounter = 0;
+
+                    function startInterval() {
+
+                        clearInterval(inter);
+                      
+
+                        counter = pausedCounter;
+
+                        inter = setInterval(() => {
+
+                            if (counter > duration) {
+
+                                counter = 0;
+
+                            }
+
+                            counter++;
+
+                            if (counter === duration) {
+
+                                clearInterval(inter);
+                               // swiper2.slideNext();
+                                startInterval();
+
+                            }
+
+                        }, 1000);
+
+                       
+                    }
+
+                    startInterval();
+
+
+                    const btn = document.querySelectorAll('.swiper_button');
+                    btn.forEach((btn) => {
+                        btn.addEventListener('click', () => {
+
+                            clearInterval(interval);
+                            startInterval();
+
+                        });
+                    });
+
+                
+                     close.addEventListener('click', () => {
+                        clearInterval(inter);
+                        intervalPaused = true;
+                        pausedCounter = counter;
+                        getVideo.muted = true;
+                        document.querySelector('.mySwiper2').classList.remove('show_modal_story');
+                        document.querySelector('.story_items').classList.add('show_modal_story');
+                        document.querySelector('.story').classList.add('height_full');
+                         document.querySelector('.element_story_content').classList.remove('show_modal_story');
+                    });
+                }
+            }
+        },
+        beforeInit(e) {
+            const index_currentSlide = e.realIndex;
+            const slides = document.querySelectorAll('.swiper-slide video');
+
+            slides.forEach((video, index) => {
+                if (index == index_currentSlide) {
+                    const muted = video.parentNode.querySelector('.muted');
+                    const volumed = video.parentNode.querySelector('.volumed');
+                    const close = video.parentNode.querySelector('.close_story');
+
+                    close.addEventListener('click', () => {
+                        video.muted = true;
+                        document.querySelector('.mySwiper2').classList.remove('show_modal_story');
+                        document.querySelector('.story_items').classList.add('show_modal_story');
+                        document.querySelector('.story').classList.add('height_full');
+                         document.querySelector('.element_story_content').classList.remove('show_modal_story');
+                    });
+
+                    muted.addEventListener('click', () => {
+                        muted.classList.remove('muted_ative');
+                        volumed.classList.add('muted_ative');
+                        video.muted = false;
+                    });
+
+                    volumed.addEventListener('click', () => {
+                        volumed.classList.remove('muted_ative');
+                        muted.classList.add('muted_ative');
+                        video.muted = true;
+                    });
+
+                    video.muted = true;
+                    video.autoplay = true;
+                    video.load();
+
+                     video.onloadedmetadata = function () {
+                        const duration = Math.floor(video.duration);
+
+                        let counter = 0;
+
+
+                        var inter;
+
+                        var intervalPaused = false;
+
+                        var pausedCounter = 0;
+
+                        function startInterval() {
+
+                            clearInterval(inter);
+
+                            counter = pausedCounter;
+
+                            inter = setInterval(() => {
+
+                                if (counter > duration) {
+
+                                    counter = 0;
+
+                                }
+
+                                counter++;
+
+
+
+                                if (counter === duration) {
+
+                                    clearInterval(inter);
+                                   // swiper2.slideNext();
+                                    startInterval();
+
+                                }
+
+                            }, 1000);
+
+                          
+
+                        }
+
+
+                        startInterval();
+                    }
+                }
+            });
+        }
+    }
+});
+
+
+const story = document.querySelector('.story_items');
+const bull = document.querySelectorAll('.story_items .slide_bull');
+const modal = document.querySelector('.mySwiper2');
+
+bull.forEach((bulls) => {
+    bulls.addEventListener('click', (bull) => {
+        const story_index = bull.target.getAttribute('data-slide');
+        modal.classList.add('show_modal_story');
+        story.classList.remove('show_modal_story');
+        
+         swiper2.update(); 
+        swiper2.slideTo(Number(story_index));
+        document.querySelector('.story').classList.remove('height_full');
+        document.querySelector('.element_story_content').classList.add('show_modal_story');
+    });
+});
+
+ const close = document.querySelectorAll('.close_story');
+
+ var videos = document.querySelectorAll('.swiper-slide video')
+
+ close.forEach((btn)=>{
+     videos.forEach((video)=>{
+         btn.addEventListener('click', () => {
+             video.muted = true;
+             video.load()
+            // video.muted = true;
+             document.querySelector('.mySwiper2').classList.remove('show_modal_story');
+             document.querySelector('.story_items').classList.add('show_modal_story');
+             document.querySelector('.story').classList.add('height_full');
+             document.querySelector('.element_story_content').classList.remove('show_modal_story');
+         });
+       
+     })
+ })
+
+
+ const muted =  document.querySelectorAll('.muted');
+ const volumed = document.querySelectorAll('.volumed');
+
+ videos.forEach((video)=>{
+
+     muted.forEach((muted)=>{
+    
+        volumed.forEach((volumed)=>{
+            
+            muted.addEventListener('click', (e) => {
+                  e.target.classList.remove('muted_ative');
+                  var parent = e.target.parentNode
+                 
+                  var vol = parent.querySelector('.volumed')
+                  
+                  vol.classList.add('muted_ative');
+                  //getVideo.muted = false;
+                   if(video.parentNode.classList.contains('swiper-slide-active')){
+                
+                    video.muted = false;
+                  }
+              });
+           
+              volumed.addEventListener('click', (e) => {
+                  e.target.classList.remove('muted_ative');                
+                  var parent1 = e.target.parentNode
+                   var mu = parent1.querySelector('.muted')
+                    mu.classList.add('muted_ative');
+                  //getVideo.muted = true;
+                 
+                  if(video.parentNode.classList.contains('swiper-slide-active')){
+                   
+                    video.muted = true;
+                  }
+              });
+        })
+    
+     })
+ })
+
+
+</script>
+
+{% endif %}
+
+{% schema %}
+    {
+        "name": "elements-story",
+        "tag": "section",
+        "settings": [
+             {
+                "type": "product",
+                "id": "product_show",
+                "label": "Show Product"
+            },
+            {
+                "type": "text",
+                "id":"user",
+                "label": "User",
+                "default": "Elements"
+            },
+            {
+                "type": "image_picker",
+                "id": "user_image",
+                "label": "User Image"
+            },
+             {
+                "type": "text",
+                "id":"btn_text",
+                "label": "Button Label",
+                "default": "See more"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Video",
+                "type": "video",
+                "settings": [
+                    {
+                        "type": "video",
+                        "id": "video",
+                        "label": "Video"
+                    },
+                     {
+                        "type": "text",
+                        "id":"video_title",
+                        "label": "Story Name",
+                        "default": "Review"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Elements Story"
+            }
+        ]
+    }
+{% endschema %}
